@@ -1,0 +1,150 @@
+@navbar-red-padding-vertical: ((@navbar-height - @line-height-computed) / 2);
+@navbar-fixed-vertical-breakepoint: 450px;
+
+// Inverse navbar
+body {
+  // padding-top: @navbar-height + 15px;
+}
+
+// .navbar.navbar-red {
+//   min-height: @navbar-red-height;
+// } smazat
+
+.navbar-red {
+  .lh-appearance();
+  // background-color: #b00001;
+  .lh-background-image(linear-gradient(to bottom, #ab0327 0%, #830a0b 100%));
+  border-bottom: 1px solid darken(rgba(168,0,0,.9), 10%);
+  .lh-box-shadow (0 0px 5px 0 rgba(0,0,0,.5));
+  // border-color: black;
+
+  .navbar-brand {
+    color: white;
+    font-size: 1.8em;
+    font-weight: 500;
+    padding: @navbar-red-padding-vertical 0;
+    // font-size: @font-size-large;
+    line-height: @line-height-computed;
+    height: @navbar-height;
+  }
+
+  .navbar-text {
+    color: @navbar-inverse-color;
+  }
+
+  .navbar-nav {
+    > li > a {
+      color: @navbar-inverse-link-color;
+
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-hover-color;
+        background-color: @navbar-inverse-link-hover-bg;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-active-color;
+        background-color: @navbar-inverse-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-disabled-color;
+        background-color: @navbar-inverse-link-disabled-bg;
+      }
+    }
+  }
+
+  // Darken the responsive nav toggle
+  .navbar-toggle {
+    border-color: @navbar-inverse-toggle-border-color;
+    &:hover,
+    &:focus {
+      background-color: @navbar-inverse-toggle-hover-bg;
+    }
+    .icon-bar {
+      background-color: @navbar-inverse-toggle-icon-bar-bg;
+    }
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: darken(@navbar-inverse-bg, 7%);
+  }
+
+  // Dropdowns
+  .navbar-nav {
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: @navbar-inverse-link-active-bg;
+        color: @navbar-inverse-link-active-color;
+      }
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      // Dropdowns get custom display
+      .open .dropdown-menu {
+        > .dropdown-header {
+          border-color: @navbar-inverse-border;
+        }
+        .divider {
+          background-color: @navbar-inverse-border;
+        }
+        > li > a {
+          color: @navbar-inverse-link-color;
+          &:hover,
+          &:focus {
+            color: @navbar-inverse-link-hover-color;
+            background-color: @navbar-inverse-link-hover-bg;
+          }
+        }
+        > .active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-inverse-link-active-color;
+            background-color: @navbar-inverse-link-active-bg;
+          }
+        }
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-inverse-link-disabled-color;
+            background-color: @navbar-inverse-link-disabled-bg;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-link {
+    color: @navbar-inverse-link-color;
+    &:hover {
+      color: @navbar-inverse-link-hover-color;
+    }
+  }
+
+}
+
+// Hide navbar on small (height) devices
+@media (max-height: @navbar-fixed-vertical-breakepoint) {
+  .navbar-fixed-top {
+    position: absolute;
+  }
+
+  .navbar-red {
+    margin-bottom: 15px;
+  }
+
+  body {
+    padding-top: 0;
+  }
+}
